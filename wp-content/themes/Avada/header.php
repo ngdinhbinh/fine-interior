@@ -377,13 +377,17 @@ if( $smof_data['layout'] == 'Boxed' || get_post_meta($c_pageID, 'pyre_page_bg_la
 	if( is_page_template('Homepage.php') ):
 	?>
 	<div class="avada-row">
-		<div class="box-custom ">
-			<div class="left">
-			<h2>Need help deciding on your idea?</h2><p class="description">Contact us righ now.</p>
+		
+		<div class="box-custom  fusion-reading-box-container reading-box-container-1 fusion-animated fadeInUp" data-animationtype="fadeInUp" data-animationduration="1" style="visibility: visible; -webkit-animation-duration: 1s; animation-duration: 1s;">
+			<div class="reading-box" >
+				<a class="button red fusion-button button-default button-round fusion-button-xlarge button-xlarge button-flat continue continue-right" 
+				style="-webkit-box-shadow:none;-moz-box-shadow:none;box-shadow:none;" href="<?php echo get_permalink(35); ?>" target="_blank">
+					<span>Contact Us</span>
+				</a>
+				<h2 data-fontsize="18" data-lineheight="27">Need help deciding on your idea?</h2>
+				<div class="reading-box-description">Contact us righ now.</div>
 			</div>
-			<a title="Contact us" href="<?php echo get_permalink(35); ?>" class="button red right">Contact Us</a>		
-		</div>
-							
+		</div>					
 	</div>
 	<?php endif; ?>
 	<div id="main" class="clearfix <?php echo $main_class; ?>" style="<?php echo $main_css; ?>">
