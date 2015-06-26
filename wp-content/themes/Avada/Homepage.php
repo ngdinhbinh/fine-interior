@@ -55,7 +55,7 @@ get_header(); ?>
 		?>
 	</div>
 	<div class="textbox-center">
-		<a title="WE SPECIALIZE IN…" href="<?php $category_id = get_cat_ID( 'we-specialize-in' ); echo get_category_link(21); ?>" class="button red ">View All</a>
+		<a title="WE SPECIALIZE IN…" href="<?php $category_id = get_cat_ID( 'we-specialize-in' ); echo get_category_link(21); ?>" class="button red ">VIEW ALL OUR SPECIALIZE</a>
 	</div>
 </div></div>
 <div class="avada-row" >
@@ -142,7 +142,7 @@ get_header(); ?>
 	</div>
 	<div style="text-align:center;   padding-bottom: 50px;">
 		<h3 style="display: inline-block;  margin-right: 40px;">EXPLORE OUR PRODUCTS</h3>
-		<a title="VIEW ALL PRODUCT" href="http://localhost/fine-interior/category/we-specialize-in/" class="button red ">View All Products</a>
+		<a title="VIEW ALL PRODUCT" href="http://localhost/fine-interior/category/we-specialize-in/" class="button red ">VIEW ALL PRODUCTS</a>
 	</div>
 </div>
 <div class="main-content" style="background-color: #F68220; padding: 25px 0;  color: #fff;  font-family: 'Raleway';font-size: 16px;">
