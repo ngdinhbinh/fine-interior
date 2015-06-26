@@ -70,7 +70,7 @@ get_header(); ?>
 		</div>	
 	</div>
 	<div class="fusion-column col col-lg-7 col-md-7 col-sm-7 " style="margin: 50px 0;  padding-left: 50px;">
-		<div class="wpb_wrapper" style="  padding: 10% 0;">
+		<div class="wpb_wrapper" >
 			<div class="feature-item sl-small-helmet">
 				<h3>We produce to your specification</h3>
 				<p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
@@ -95,7 +95,7 @@ get_header(); ?>
 		$args = array(
 			'posts_per_page'   => -1,
 			'offset'           => 0,
-			'category_name'    => 'we-work-in',
+			'category_name'    => 'we-specialize-in',
 			'orderby'          => 'title',
 			'order'            => 'ASC',
 			'post_type'        => 'post',
@@ -106,5 +106,72 @@ get_header(); ?>
 	?>
 	
 </div>
-
+<div class="main-content" style="padding:0">
+	<div class="fusion-columns row fusion-columns-4 columns columns-4 home_product" style="margin: 60px 0;">
+		<?php 
+			$i = 1;
+			foreach($posts as $post){
+				if($i > 4) break;
+				setup_postdata( $post ); 
+				
+				$thumbnail = get_post_meta($post->ID, '_thumbnail_id', false );
+				?>
+				<div class="fusion-one-fourth one_fourth fusion-layout-column fusion-spacing-yes  <?php echo $i == 4 ? "fusion-column-last " :""; ?>" style="margin-top:0px;margin-bottom:20px;">
+					<div class="fusion-column-wrapper align-center">
+						<div class="imageframe-align-center">
+							<span class="fusion-imageframe imageframe-none imageframe-1 fusion-animated fadeInUp" 
+							data-animationtype="fadeInUp" data-animationduration="1" style="  width: 100%;visibility: visible; -webkit-animation-duration: 1s; animation-duration: 1s;">
+								<a href="<?php echo the_permalink(); ?>" class="fusion-lightbox" > 
+									<?php echo get_the_post_thumbnail( $post->ID, 'full' ); ?>
+								</a>
+							</span>
+							<div class="view align-center">
+								<div class="vertical-align-table">
+									<div class="vertical-align-cell"><p class="description"><?php the_title(); ?></p>
+									<a class="more simple" href="<?php echo the_permalink(); ?>" title="View Product">View Product</a></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<?php
+				$i = $i + 1;
+			}
+			wp_reset_postdata();
+		?>
+	</div>
+	<div style="text-align:center;   padding-bottom: 50px;">
+		<h3 style="display: inline-block;  margin-right: 40px;">EXPLORE OUR PRODUCTS</h3>
+		<a title="VIEW ALL PRODUCT" href="http://localhost/fine-interior/category/we-specialize-in/" class="button red ">View All Products</a>
+	</div>
+</div>
+<div class="main-content" style="background-color: #F68220; padding: 25px 0;  color: #fff;  font-family: 'Raleway';font-size: 16px;">
+	<div class="avada-row">
+		<div class="fusion-one-third one_third fusion-layout-column fusion-spacing-yes home-info home-phone" >
+			<div class="fusion-column-wrapper" style="  margin-top: 18px;">
+				
+					<span>Phone:</span><br />
+					<span> +84 650 652650</span>
+				
+			</div>
+		</div>
+		<div class="fusion-one-third one_third fusion-layout-column fusion-spacing-yes home-info home-address" >
+			<div class="fusion-column-wrapper">
+				
+					<span>Address:</span><br />
+					<span>Street DT747B, Khanh Binh Ward, Tan Uyen District, Binh Duong Province, Vietnam</span>
+				
+			</div>
+		</div>
+		<div class="fusion-one-third one_third fusion-layout-column fusion-spacing-yes fusion-column-last home-info home-email" >
+			<div class="fusion-column-wrapper" style="  margin-top: 18px;">
+				
+					<span>Email:</span><br />
+					<span>johan@fine-Interior.com.vn</span>
+				
+			</div>
+		</div>
+	</div>
+</div>
+<?php echo do_shortcode('[avada_map address="' . $smof_data['gmap_address'] . '" type="' . $smof_data['gmap_type'] . '" map_style="' . $smof_data['map_styling'] . '" overlay_color="' . $smof_data['map_overlay_color'] . '" infobox="' . $smof_data['map_infobox_styling'] . '" infobox_background_color="' . $smof_data['map_infobox_bg_color'] . '" infobox_text_color="' . $smof_data['map_infobox_text_color'] . '" infobox_content="' . $smof_data['map_infobox_content'] . '" icon="' . $smof_data['map_custom_marker_icon'] . '" width="' . $smof_data['gmap_width'] . '" height="' . $smof_data['gmap_height'] . '" zoom="' . $smof_data['map_zoom_level'] . '" scrollwheel="' . $map_scrollwheel . '" scale="' . $map_scale . '" zoom_pancontrol="' . $map_zoomcontrol . '" popup="' . $map_popup . '"][/avada_map]'); ?>
 <?php get_footer(); ?>
