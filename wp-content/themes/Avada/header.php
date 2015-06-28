@@ -376,6 +376,7 @@ if( $smof_data['layout'] == 'Boxed' || get_post_meta($c_pageID, 'pyre_page_bg_la
 	<?php
 	if( is_page_template('Homepage.php') ):
 	?>
+	<!--
 	<div class="avada-row">
 		
 		<div class="box-custom  fusion-reading-box-container reading-box-container-1 fusion-animated fadeInUp" data-animationtype="fadeInUp" data-animationduration="1" style="visibility: visible; -webkit-animation-duration: 1s; animation-duration: 1s;">
@@ -388,6 +389,35 @@ if( $smof_data['layout'] == 'Boxed' || get_post_meta($c_pageID, 'pyre_page_bg_la
 				<div class="reading-box-description">Contact us righ now.</div>
 			</div>
 		</div>					
+	</div>
+	-->
+	<div class="avada-row" >
+		<h2 class="box-header" style="  padding: 55px 10px 45px;">OUR PRODUCTION</h2>
+		<div style="  padding: 0 10%;text-align:center;font-size: 16px;">
+			With Swedish management and with our strong engineering team we develop products to meet your quality and price requirements
+		</div>
+		<div class="fusion-clearfix"></div>
+		<div class="fusion-column col col-lg-5 col-md-5 col-sm-5 " style="margin: 50px 0;">
+			<div class="img_box_circle">
+				<img width="480" height="480" src="/fine-interior/wp-content/uploads/2015/06/cooperate.jpg" class="vc_single_image-img attachment-large-thumb" alt="image_10" style="display: block;">
+			</div>	
+		</div>
+		<div class="fusion-column col col-lg-7 col-md-7 col-sm-7 " style="margin: 50px 0;  padding-left: 50px;">
+			<div class="wpb_wrapper home-feature" >
+				<div class="feature-item sl-small-helmet">
+					<h3>We produce to your specification</h3>
+					
+				</div>
+				<div class="feature-item sl-small-roller page-margin-top">
+					<h3>We get seriously involved in your design and product development</h3>
+					
+				</div>
+				<div class="feature-item sl-small-driller page-margin-top">
+					<h3>We develop product to meet your quality and price requirements</h3>
+					
+				</div>
+			</div>
+		</div>
 	</div>
 	<?php endif; ?>
 	<div id="main" class="clearfix <?php echo $main_class; ?>" style="<?php echo $main_css; ?>">

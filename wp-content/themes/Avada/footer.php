@@ -25,42 +25,89 @@
 		<div class="avada-row">
 			<section class="fusion-columns row fusion-columns-<?php echo $smof_data['footer_widgets_columns']; ?> columns columns-<?php echo $smof_data['footer_widgets_columns']; ?>">
 				<?php $column_width = 12 / $smof_data['footer_widgets_columns']; ?>
-			
-				<?php if( $smof_data['footer_widgets_columns'] >= 1 ): ?>
-				<article class="fusion-column col <?php echo sprintf( 'col-lg-%s col-md-%s col-sm-%s', $column_width, $column_width, $column_width ); ?> ">
-				<?php
-				if (!function_exists('dynamic_sidebar') || !dynamic_sidebar('Footer Widget 1')):
-				endif;
-				?>
-				</article>
-				<?php endif; ?>
-				
-				<?php if( $smof_data['footer_widgets_columns'] >= 2 ): ?>
 				<article class="fusion-column col <?php echo sprintf( 'col-lg-%s col-md-%s col-sm-%s', $column_width, $column_width, $column_width ); ?>">
-				<?php
-				if (!function_exists('dynamic_sidebar') || !dynamic_sidebar('Footer Widget 2')):
-				endif;
-				?>
-				</article>
-				<?php endif; ?>
-				
-				<?php if( $smof_data['footer_widgets_columns'] >= 3 ): ?>
-				<article class="fusion-column col <?php echo sprintf( 'col-lg-%s col-md-%s col-sm-%s', $column_width, $column_width, $column_width ); ?>">
-				<?php
-				if (!function_exists('dynamic_sidebar') || !dynamic_sidebar('Footer Widget 3')):
-				endif;
-				?>
-				</article>
-				<?php endif; ?>
-				
-				<?php if( $smof_data['footer_widgets_columns'] >= 4 ): ?>
+					<div id="categories-4" class="footer-widget-col widget_categories"><h3>Production</h3>		
+						<ul>
+							<li class="cat-item cat-item-1"><a >We produce to your specification</a>
+							</li>
+							<li class="cat-item cat-item-21"><a >We get seriously involved in your design and product development</a>
+							</li>
+							<li class="cat-item cat-item-2"><a>We develop product to meet your quality and price requirements</a>
+							</li>
+						</ul>
+					<div style="clear:both;"></div></div>
+				</article>				
 				<article class="fusion-column col last <?php echo sprintf( 'col-lg-%s col-md-%s col-sm-%s', $column_width, $column_width, $column_width ); ?>">
-				<?php
-				if (!function_exists('dynamic_sidebar') || !dynamic_sidebar('Footer Widget 4')):
-				endif;
-				?>
+					<div id="tag_cloud-2" class="footer-widget-col widget_tag_cloud">
+						<h3><a href="<?php $category_id =  get_category_by_slug( 'we-specialize-in' ); echo get_category_link( $category_id->term_id );  ?>">We specialize in…</a></h3>
+						<div class="tagcloud">
+							<?php 
+								$args = array(
+									'posts_per_page'   => -1,
+									'offset'           => 0,
+									'category_name'    => 'we-specialize-in',
+									'orderby'          => 'title',
+									'order'            => 'ASC',
+									'post_type'        => 'post',
+									'post_status'      => 'publish',
+									'suppress_filters' => true 
+								); 
+								$posts = get_posts( $args);
+								foreach($posts as $post){
+									setup_postdata( $post );
+									?>
+									<a href="<?php echo the_permalink(); ?>" class="tag-link-19" title="1 topic" style="font-size: 8pt;"><?php the_title(); ?></a>
+									<?php
+								}
+								wp_reset_postdata();
+							?>
+						</div>
+						<div style="clear:both;"></div>
+					</div>
 				</article>
-				<?php endif; ?>
+				<article class="fusion-column col <?php echo sprintf( 'col-lg-%s col-md-%s col-sm-%s', $column_width, $column_width, $column_width ); ?>">
+					<div id="tag_cloud-2" class="footer-widget-col widget_tag_cloud">
+						<h3><a href="<?php $category_id =  get_category_by_slug( 'we-specialize-in' ); echo get_category_link( $category_id->term_id );  ?>">Our Products</a></h3>
+						<div class="tagcloud">
+							<?php 
+								$args = array(
+									'posts_per_page'   => -1,
+									'offset'           => 0,
+									'category_name'    => 'we-work-in',
+									'orderby'          => 'title',
+									'order'            => 'ASC',
+									'post_type'        => 'post',
+									'post_status'      => 'publish',
+									'suppress_filters' => true 
+								); 
+								$posts = get_posts( $args);
+								foreach($posts as $post){
+									setup_postdata( $post );
+									?>
+									<a href="<?php echo the_permalink(); ?>" class="tag-link-19" title="1 topic" style="font-size: 8pt;"><?php the_title(); ?></a>
+									<?php
+								}
+								wp_reset_postdata();
+							?>
+						</div>
+						<div style="clear:both;"></div>
+					</div>
+				</article>
+				
+				<article class="fusion-column col <?php echo sprintf( 'col-lg-%s col-md-%s col-sm-%s', $column_width, $column_width, $column_width ); ?> ">
+				<div id="contact_info-widget-2" class="footer-widget-col contact_info"><h3>Contact Info</h3>		
+					<div class="contact-info-container">
+						<p class="address">Street DT747B, Khanh Binh Ward, Tan Uyen District, Binh Duong Province, Vietnam </p>
+			
+						<p class="phone">Phone: +84 650 652650</p>
+						<p class="fax">Fax: +84 650 652651</p>
+						<p class="email">Email: <a href="mailto:johan@fine-Interior.com.vn">johan@fine-Interior.com.vn</a></p>
+			
+					</div>
+					<div style="clear:both;"></div>
+				</div>
+				</article>
+				
 				<div class="fusion-clearfix"></div>
 			</section>
 		</div>
@@ -75,23 +122,6 @@
 					<div>Copyright 2015 Fine Interior | All Rights Reserved </div>
 					
 				</div>
-				<?php if($smof_data['icons_footer']): ?>
-				<div class="fusion-social-links-footer">
-					<?php
-					$footer_soical_icon_options = array (
-						'position'			=> 'footer',
-						'icon_colors' 		=> $smof_data['footer_social_links_icon_color'],
-						'box_colors' 		=> $smof_data['footer_social_links_box_color'],
-						'icon_boxed' 		=> $smof_data['footer_social_links_boxed'],
-						'icon_boxed_radius' => $smof_data['footer_social_links_boxed_radius'],
-						'tooltip_placement'	=> $smof_data['footer_social_links_tooltip_placement'],
-						'linktarget'		=> $smof_data['social_icons_new']
-					);
-					
-					echo $social_icons->render_social_icons($footer_soical_icon_options);
-					?>
-				</div>
-				<?php endif; ?>
 			</div>
 		</div>
 	</footer>
