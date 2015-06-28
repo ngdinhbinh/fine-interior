@@ -19,11 +19,16 @@ get_header(); ?>
 		'pad_counts'               => false 
 	); 
 	$categories = get_categories( $args );
+	$array_categories = array();
+	foreach($categories as $category){
+		$array_categories[] = 	$category->term_id;	
+	}
 	?>
 	<p style="  padding: 0 10%;text-align:center;">Shop fittings, modular retail shelving, shop display equipment, workshop fittings, workshop storage equipment, storage systems, furniture, furniture components</p>
 	<div class="fusion-columns row fusion-columns-3 columns columns-3 home_service" style="margin: 60px 0;">
 		<?php 
 			$i = 1;
+			
 			foreach($categories as $category){
 				if ( $i> 3) break;
 				?>
@@ -60,9 +65,9 @@ get_header(); ?>
 	</div>
 	<?php
 		$args = array(
-			'posts_per_page'   => -1,
+			'posts_per_page'   => 4,
 			'offset'           => 0,
-			'category_name'    => 'we-specialize-in',
+			'category'    		=> 28,
 			'orderby'          => 'title',
 			'order'            => 'ASC',
 			'post_type'        => 'post',
@@ -78,7 +83,7 @@ get_header(); ?>
 		<?php 
 			$i = 1;
 			foreach($posts as $post){
-				if($i > 4) break;
+			
 				setup_postdata( $post ); 
 				
 				$thumbnail = get_post_meta($post->ID, '_thumbnail_id', false );
