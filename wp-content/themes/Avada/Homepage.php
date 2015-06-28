@@ -36,7 +36,7 @@ get_header(); ?>
 					<div class="fusion-column-wrapper">
 						<div class="imageframe-align-center">
 							<span class="fusion-imageframe imageframe-none imageframe-1 fusion-animated fadeInUp" data-animationtype="fadeInUp" data-animationduration="1" style="visibility: visible; -webkit-animation-duration: 1s; animation-duration: 1s;">
-								<a href="<?php  echo get_category_link( $category->term_id );  ?>" class="fusion-lightbox" data-rel="iLightbox[558c327bd250f]" data-title="feature3"> 
+								<a href="<?php  echo get_category_link( $category->term_id );  ?>" class="container_image fusion-lightbox" data-rel="iLightbox[558c327bd250f]" data-title="feature3"> 
 									<img src="<?php echo z_taxonomy_image_url($category->term_id) ?>" />
 								</a>
 							</span>

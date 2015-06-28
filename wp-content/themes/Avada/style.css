@@ -15872,3 +15872,5 @@ content: "\f0e0";  font-size: 30px;
   border: 1px solid #E2E6E7;
   margin-right: 21px;
 }
+a.container_image{border:1px solid #ccc;  display: block;
+  box-shadow: 1px 3px 7px #D7D5D5;}
