@@ -5,7 +5,7 @@ get_header(); ?>
 	<h2 class="box-header">WHAT  DO WE SPECIALIZE IN ?</h2>
 	<?php 
 	$args = array(
-		'type'                     => 'post',
+		'type'                     => 'product',
 		'child_of'                 => 0,
 		'parent'                   => '',
 		'orderby'                  => 'name',
@@ -15,7 +15,7 @@ get_header(); ?>
 		'exclude'                  => 1,
 		'include'                  => '',
 		'number'                   => '',
-		'taxonomy'                 => 'category',
+		'taxonomy'                 => 'productcategory',
 		'pad_counts'               => false 
 	); 
 	$categories = get_categories( $args );
@@ -64,12 +64,11 @@ get_header(); ?>
 		Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
 	</div>
 	<?php
-		$query_args = array( 
-							'category__and' => $array_categories,  
+		$query_args = array(
 							'posts_per_page' => 4, 
 							'no_found_rows' => 1, 
 							'post_status' => 'publish', 
-							'post_type' => 'post',
+							'post_type' => 'product',
 							'orderby' => 'title',
 							'order'   => 'DESC',
 							);

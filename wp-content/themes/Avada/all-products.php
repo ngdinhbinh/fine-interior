@@ -5,7 +5,7 @@ get_header(); ?>
 		<div class="fusion-columns row fusion-columns-3 columns columns-3 home_service" style="margin: 60px 0;">
 			<?php 
 				$args = array(
-					'type'                     => 'post',
+					'type'                     => 'product',
 					'child_of'                 => 0,
 					'parent'                   => '',
 					'orderby'                  => 'name',
@@ -29,7 +29,7 @@ get_header(); ?>
 							'posts_per_page' => -1, 
 							'no_found_rows' => 1, 
 							'post_status' => 'publish', 
-							'post_type' => 'post',
+							'post_type' => 'product',
 							'orderby' => 'title',
 							'order'   => 'DESC',
 							);
