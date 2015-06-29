@@ -319,10 +319,10 @@
 		</div>
 		<?php endif; ?>
 	</div>
-	<?php if( $sidebar_exists == true ): ?>
+	
 	<?php wp_reset_query(); ?>
 	<div id="sidebar" style="<?php echo $sidebar_css; ?>">
-	<?php generated_dynamic_sidebar(); ?>
+	<?php dynamic_sidebar('avada-slidingbar-widget-1'); ?>
 	</div>
-	<?php endif; ?>
+	
 <?php get_footer(); ?>

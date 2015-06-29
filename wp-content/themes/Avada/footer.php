@@ -39,27 +39,31 @@
 				</article>				
 				<article class="fusion-column col last <?php echo sprintf( 'col-lg-%s col-md-%s col-sm-%s', $column_width, $column_width, $column_width ); ?>">
 					<div id="tag_cloud-2" class="footer-widget-col widget_tag_cloud">
-						<h3><a href="<?php $category_id =  get_category_by_slug( 'we-specialize-in' ); echo get_category_link( $category_id->term_id );  ?>">We specialize in…</a></h3>
+						<h3>We specialize in…</h3>
 						<div class="tagcloud">
 							<?php 
 								$args = array(
-									'posts_per_page'   => -1,
-									'offset'           => 0,
-									'category_name'    => 'we-specialize-in',
-									'orderby'          => 'title',
-									'order'            => 'ASC',
-									'post_type'        => 'post',
-									'post_status'      => 'publish',
-									'suppress_filters' => true 
+									'type'                     => 'post',
+									'child_of'                 => 0,
+									'parent'                   => '',
+									'orderby'                  => 'name',
+									'order'                    => 'ASC',
+									'hide_empty'               => 1,
+									'hierarchical'             => 1,
+									'exclude'                  => 1,
+									'include'                  => '',
+									'number'                   => '',
+									'taxonomy'                 => 'category',
+									'pad_counts'               => false 
 								); 
-								$posts = get_posts( $args);
-								foreach($posts as $post){
-									setup_postdata( $post );
+								$categories = get_categories( $args );
+								$array_categories = array();
+								foreach($categories as $category){
+									$array_categories[] = 	$category->term_taxonomy_id ;	
 									?>
-									<a href="<?php echo the_permalink(); ?>" class="tag-link-19" title="1 topic" style="font-size: 8pt;"><?php the_title(); ?></a>
+									<a href="<?php  echo get_category_link( $category->term_id );  ?>" class="tag-link-19" title="1 topic" style="font-size: 8pt;"><?php echo $category->name;?></a>
 									<?php
 								}
-								wp_reset_postdata();
 							?>
 						</div>
 						<div style="clear:both;"></div>
@@ -67,22 +71,21 @@
 				</article>
 				<article class="fusion-column col <?php echo sprintf( 'col-lg-%s col-md-%s col-sm-%s', $column_width, $column_width, $column_width ); ?>">
 					<div id="tag_cloud-2" class="footer-widget-col widget_tag_cloud">
-						<h3><a href="<?php $category_id =  get_category_by_slug( 'we-specialize-in' ); echo get_category_link( $category_id->term_id );  ?>">Our Products</a></h3>
+						<h3>Our Products</h3>
 						<div class="tagcloud">
 							<?php 
-								$args = array(
-									'posts_per_page'   => -1,
-									'offset'           => 0,
-									'category_name'    => 'we-work-in',
-									'orderby'          => 'title',
-									'order'            => 'ASC',
-									'post_type'        => 'post',
-									'post_status'      => 'publish',
-									'suppress_filters' => true 
-								); 
-								$posts = get_posts( $args);
-								foreach($posts as $post){
-									setup_postdata( $post );
+								$query_args = array( 
+								'category__and' => $array_categories,  
+								'posts_per_page' => -1, 
+								'no_found_rows' => 1, 
+								'post_status' => 'publish', 
+								'post_type' => 'post',
+								'orderby' => 'title',
+								'order'   => 'DESC',
+								);
+								$the_query = new WP_Query($query_args);
+								while ( $the_query->have_posts() ) {
+									$the_query->the_post();
 									?>
 									<a href="<?php echo the_permalink(); ?>" class="tag-link-19" title="1 topic" style="font-size: 8pt;"><?php the_title(); ?></a>
 									<?php

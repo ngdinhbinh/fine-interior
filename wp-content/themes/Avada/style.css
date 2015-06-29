@@ -2596,10 +2596,11 @@ body .post-content .image-extras .link-icon {
   margin: 0;
   padding: 0;
 }
+#sidebar .tab-holder{background:#fff;}
 .tab-holder .news-list li,
 #sidebar .tab-holder .news-list li {
   border-bottom: 1px solid #e2e2e2;
-  padding: 20px 15px;
+  padding: 10px 15px;
   overflow: hidden;
 }
 .tab-holder .news-list li a {
@@ -8488,9 +8489,8 @@ p.order-info mark {
   right: auto;
 }
 .tab-holder .news-list li .image {
-  float: right;
-  margin-left: 13px;
-  margin-right: 0;
+    float: left;
+  margin-right: 13px;
 }
 .rtl h5.toggle span.arrow {
   float: right;
@@ -15874,3 +15874,8 @@ content: "\f0e0";  font-size: 30px;
 }
 a.container_image{border:1px solid #ccc;  display: block;
   box-shadow: 1px 3px 7px #D7D5D5;}
+#sidebar  ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}

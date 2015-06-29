@@ -75,7 +75,6 @@ get_header(); ?>
 							);
 		$the_query = new WP_Query($query_args);
 	?>
-	
 </div>
 <div class="main-content" style="padding:0">
 	<div class="fusion-columns row fusion-columns-4 columns columns-4 home_product" style="margin: 60px 0;">
@@ -112,7 +111,7 @@ get_header(); ?>
 	</div>
 	<div style="text-align:center;   padding-bottom: 50px;">
 		<h3 style="display: inline-block;  margin-right: 40px;">EXPLORE OUR PRODUCTS</h3>
-		<a title="VIEW ALL PRODUCT" href="<?php $category_id =  get_category_by_slug( 'we-specialize-in' ); echo get_category_link( $category_id->term_id );  ?>" class="button red ">VIEW ALL PRODUCTS</a>
+		<a title="VIEW ALL PRODUCT" href="<?php echo home_url('all-products/'); ?>" class="button red ">VIEW ALL PRODUCTS</a>
 	</div>
 </div>
 <div class="main-content" style="background-color: #F68220; padding: 25px 0;  color: #fff;  font-family: 'Raleway';font-size: 16px;">

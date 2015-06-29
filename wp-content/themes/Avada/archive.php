@@ -5,33 +5,26 @@
 	$post_class = '';
 	$content_class = '';
 
-	if($smof_data['blog_archive_sidebar'] == 'None') {
-		$content_css = 'width:100%';
-		$sidebar_css = 'display:none';
-		$content_class= 'full-width';
-		$sidebar_exists = false;
-	} elseif($smof_data['blog_sidebar_position'] == 'Left') {
-		$content_css = 'float:right;';
-		$sidebar_css = 'float:left;';
-	} elseif($smof_data['blog_sidebar_position'] == 'Right') {
+	
+		
 		$content_css = 'float:left;';
 		$sidebar_css = 'float:right;';
-	}
+	
 
-	if($smof_data['blog_archive_layout'] == 'Large Alternate') {
-		$post_class = 'large-alternate';
-	} elseif($smof_data['blog_archive_layout'] == 'Medium Alternate') {
-		$post_class = 'medium-alternate';
-	} elseif($smof_data['blog_archive_layout'] == 'Grid') {
+	// if($smof_data['blog_archive_layout'] == 'Large Alternate') {
+		// $post_class = 'large-alternate';
+	// } elseif($smof_data['blog_archive_layout'] == 'Medium Alternate') {
+		// $post_class = 'medium-alternate';
+	// } elseif($smof_data['blog_archive_layout'] == 'Grid') {
 		$post_class = 'grid-post';
-		$container_class = sprintf( 'grid-layout grid-layout-%s', $smof_data['blog_grid_columns'] );
-	} elseif($smof_data['blog_archive_layout'] == 'Timeline') {
-		$post_class = 'timeline-post';
-		$container_class = 'timeline-layout';
-		if($smof_data['blog_archive_sidebar'] != 'None') {
-			$container_class = 'timeline-layout timeline-sidebar-layout';
-		}
-	}
+		$container_class = sprintf( 'grid-layout grid-layout-%s',2 );
+	// } elseif($smof_data['blog_archive_layout'] == 'Timeline') {
+		// $post_class = 'timeline-post';
+		// $container_class = 'timeline-layout';
+		// if($smof_data['blog_archive_sidebar'] != 'None') {
+			// $container_class = 'timeline-layout timeline-sidebar-layout';
+		// }
+	// }
 	?>
 	<div id="content" class="<?php echo $content_class; ?>" style="<?php echo $content_css; ?>">
 		<?php if(category_description()): ?>
@@ -224,11 +217,7 @@
 	<?php if( $sidebar_exists == true ): ?>
 	<?php wp_reset_query(); ?>
 	<div id="sidebar" style="<?php echo $sidebar_css; ?>">
-	<?php
-	if ($smof_data['blog_archive_sidebar'] != 'None' && function_exists('dynamic_sidebar')) {
-		generated_dynamic_sidebar($smof_data['blog_archive_sidebar']);
-	}
-	?>
+	<?php dynamic_sidebar('avada-slidingbar-widget-1'); ?>
 	</div>
 	<?php endif; ?>
 <?php get_footer(); ?>
