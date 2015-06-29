@@ -21,7 +21,7 @@ get_header(); ?>
 	$categories = get_categories( $args );
 	$array_categories = array();
 	foreach($categories as $category){
-		$array_categories[] = 	$category->term_id;	
+		$array_categories[] = 	$category->term_taxonomy_id ;	
 	}
 	?>
 	<p style="  padding: 0 10%;text-align:center;">Shop fittings, modular retail shelving, shop display equipment, workshop fittings, workshop storage equipment, storage systems, furniture, furniture components</p>
@@ -64,17 +64,16 @@ get_header(); ?>
 		Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
 	</div>
 	<?php
-		$args = array(
-			'posts_per_page'   => 4,
-			'offset'           => 0,
-			'category'    		=> 28,
-			'orderby'          => 'title',
-			'order'            => 'ASC',
-			'post_type'        => 'post',
-			'post_status'      => 'publish',
-			'suppress_filters' => true 
-		); 
-		$posts = get_posts( $args);
+		$query_args = array( 
+							'category__and' => $array_categories,  
+							'posts_per_page' => 4, 
+							'no_found_rows' => 1, 
+							'post_status' => 'publish', 
+							'post_type' => 'post',
+							'orderby' => 'title',
+							'order'   => 'DESC',
+							);
+		$the_query = new WP_Query($query_args);
 	?>
 	
 </div>
@@ -82,9 +81,8 @@ get_header(); ?>
 	<div class="fusion-columns row fusion-columns-4 columns columns-4 home_product" style="margin: 60px 0;">
 		<?php 
 			$i = 1;
-			foreach($posts as $post){
-			
-				setup_postdata( $post ); 
+			while ( $the_query->have_posts() ) {
+				$the_query->the_post();
 				
 				$thumbnail = get_post_meta($post->ID, '_thumbnail_id', false );
 				?>
