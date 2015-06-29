@@ -30,7 +30,7 @@ class Pyre_Tabs_Widget extends WP_Widget {
 		$show_recent_posts = isset($instance['show_recent_posts']) ? 'true' : 'false';
 		$show_comments = isset($instance['show_comments']) ? 'true' : 'false';
 		$show_tags = isset($instance['show_tags']) ? 'true' : 'false';
-
+		$post_type = isset($instance['post_type']) ? $instance['post_type'] : 'post';
 		if(isset($instance['orderby'])) {
 			$orderby = $instance['orderby'];
 		} else {
@@ -61,7 +61,7 @@ class Pyre_Tabs_Widget extends WP_Widget {
 						} else {
 							$order_string = '&meta_key=avada_post_views_count&orderby=meta_value_num';
 						}
-						$popular_posts = new WP_Query('showposts='.$posts.$order_string.'&order=DESC&ignore_sticky_posts=1');
+						$popular_posts = new WP_Query('post_type='.$post_type.'&showposts='.$posts.$order_string.'&order=DESC&ignore_sticky_posts=1');
 						if($popular_posts->have_posts()): ?>
 						<ul class="news-list">
 							<?php while($popular_posts->have_posts()): $popular_posts->the_post(); ?>
@@ -88,7 +88,7 @@ class Pyre_Tabs_Widget extends WP_Widget {
 					<?php if($show_recent_posts == 'true'): ?>
 					<div id="tab-recent" class="tab tab_content" style="display: none;">
 						<?php
-						$recent_posts = new WP_Query('showposts='.$tags_count.'&ignore_sticky_posts=1');
+						$recent_posts = new WP_Query('post_type='.$post_type.'&showposts='.$tags_count.'&ignore_sticky_posts=1');
 						if($recent_posts->have_posts()):
 						?>
 						<ul class="news-list">
@@ -158,7 +158,7 @@ class Pyre_Tabs_Widget extends WP_Widget {
 		$instance['show_comments'] = $new_instance['show_comments'];
 		$instance['show_tags'] = $new_instance['show_tags'];
 		$instance['orderby'] = $new_instance['orderby'];
-
+		$instance['post_type'] = $new_instance['post_type'];
 		return $instance;
 	}
 
@@ -166,6 +166,13 @@ class Pyre_Tabs_Widget extends WP_Widget {
 	{
 		$defaults = array('posts' => 3, 'comments' => '3', 'tags' => 20, 'show_popular_posts' => 'on', 'show_recent_posts' => 'on', 'show_comments' => 'on', 'show_tags' =>  'on', 'orderby' => 'Highest Comments');
 		$instance = wp_parse_args((array) $instance, $defaults); ?>
+		<p>
+			<label for="<?php echo $this->get_field_id('post_type'); ?>">Post type:</label>
+			<select id="<?php echo $this->get_field_id('post_type'); ?>" name="<?php echo $this->get_field_name('post_type'); ?>" class="widefat" style="width:100%;">
+				<option value="post" <?php if ('post' == $instance['post_type']) echo 'selected="selected"'; ?>>Posts</option>
+				<option value="product" <?php if ('product' == $instance['post_type']) echo 'selected="selected"'; ?>>Products</option>
+			</select>
+		</p>
 		<p>
 			<label for="<?php echo $this->get_field_id('orderby'); ?>">Popular Posts Order By:</label>
 			<select id="<?php echo $this->get_field_id('orderby'); ?>" name="<?php echo $this->get_field_name('orderby'); ?>" class="widefat" style="width:100%;">

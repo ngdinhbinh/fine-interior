@@ -15,7 +15,7 @@ get_header(); ?>
 		'exclude'                  => 1,
 		'include'                  => '',
 		'number'                   => '',
-		'taxonomy'                 => 'productcategory',
+		'taxonomy'                 => 'product_category',
 		'pad_counts'               => false 
 	); 
 	$categories = get_categories( $args );

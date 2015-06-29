@@ -43,7 +43,7 @@
 						<div class="tagcloud">
 							<?php 
 								$args = array(
-									'type'                     => 'post',
+									'type'                     => 'product',
 									'child_of'                 => 0,
 									'parent'                   => '',
 									'orderby'                  => 'name',
@@ -53,7 +53,7 @@
 									'exclude'                  => 1,
 									'include'                  => '',
 									'number'                   => '',
-									'taxonomy'                 => 'category',
+									'taxonomy'                 => 'product_category',
 									'pad_counts'               => false 
 								); 
 								$categories = get_categories( $args );
@@ -75,11 +75,11 @@
 						<div class="tagcloud">
 							<?php 
 								$query_args = array( 
-								'category__and' => $array_categories,  
+								
 								'posts_per_page' => -1, 
 								'no_found_rows' => 1, 
 								'post_status' => 'publish', 
-								'post_type' => 'post',
+								'post_type' => 'product',
 								'orderby' => 'title',
 								'order'   => 'DESC',
 								);
