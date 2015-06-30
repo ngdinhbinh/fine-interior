@@ -4,32 +4,16 @@ get_header(); ?>
 
 	<h2 class="box-header">WHAT  DO WE SPECIALIZE IN ?</h2>
 	<?php 
-	$args = array(
-		'type'                     => 'product',
-		'child_of'                 => 0,
-		'parent'                   => '',
-		'orderby'                  => 'name',
-		'order'                    => 'ASC',
-		'hide_empty'               => 1,
-		'hierarchical'             => 1,
-		'exclude'                  => 1,
-		'include'                  => '',
-		'number'                   => '',
-		'taxonomy'                 => 'product_category',
-		'pad_counts'               => false 
-	); 
-	
-	$categories = get_terms( 'product_category' );
-	$array_categories = array();
-	foreach($categories as $category){
-		$array_categories[] = 	$category->term_taxonomy_id ;	
-	}
+		$categories = get_terms( 'product_category' );
+		$array_categories = array();
+		foreach($categories as $category){
+			$array_categories[] = 	$category->term_taxonomy_id ;	
+		}
 	?>
 	<p style="  padding: 0 10%;text-align:center;">Shop fittings, modular retail shelving, shop display equipment, workshop fittings, workshop storage equipment, storage systems, furniture, furniture components</p>
 	<div class="fusion-columns row fusion-columns-3 columns columns-3 home_service" style="margin: 60px 0;">
 		<?php 
 			$i = 1;
-			
 			foreach($categories as $category){
 				if ( $i> 3) break;
 				?>
@@ -55,7 +39,7 @@ get_header(); ?>
 		?>
 	</div>
 	<div class="textbox-center">
-		<a title="WE SPECIALIZE IN…" href="<?php $category_id = get_cat_ID( 'we-specialize-in' ); echo get_category_link(21); ?>" class="button red ">VIEW ALL OUR SPECIALIZE</a>
+		<a title="WE SPECIALIZE IN…" href="<?php echo home_url('/product-categories/'); ?>" class="button red ">VIEW ALL OUR SPECIALIZE</a>
 	</div>
 </div></div><!-- end: main -->
 
