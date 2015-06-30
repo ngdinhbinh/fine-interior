@@ -110,7 +110,7 @@ get_header(); ?>
 		?>
 	</div>
 	<div style="text-align:center;   padding-bottom: 50px;">
-		<h3 style="display: inline-block;  margin-right: 40px;">EXPLORE OUR PRODUCTS</h3>
+		<h3 class="explore-our-product" >EXPLORE OUR PRODUCTS</h3>
 		<a title="VIEW ALL PRODUCT" href="<?php echo home_url('all-products/'); ?>" class="button red ">VIEW ALL PRODUCTS</a>
 	</div>
 </div>

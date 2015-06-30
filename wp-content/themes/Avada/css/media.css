@@ -533,6 +533,8 @@
 	}
 }
 @media screen and (max-width: 782px) {
+	h3.explore-our-product{display:block;text-align:center;margin: 20px 0;}
+	.header-social{display:none;}
 	body.admin-bar #wrapper #slidingbar-area, .admin-bar p.demo_store, body.admin-bar #header-sticky.sticky-header {
 		top: 46px;
 	}
