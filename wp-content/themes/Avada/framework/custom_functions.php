@@ -7,17 +7,19 @@ function get_related_posts($post_id, $number_posts = -1) {
 	if($number_posts == 0) {
 		return $query;
 	}
-
+	$post_type = get_post_type($post_id);
+	
 	$args = wp_parse_args($args, array(
 		'posts_per_page' => $number_posts,
 		'post__not_in' => array($post_id),
 		'ignore_sticky_posts' => 0,
         'meta_key' => '_thumbnail_id',
-        'category__in' => wp_get_post_categories($post_id)
+        'category__in' => wp_get_post_categories($post_id),
+		'post_type' => $post_type
 	));
 
 	$query = new WP_Query($args);
-
+	
   	return $query;
 }
 

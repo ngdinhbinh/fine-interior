@@ -233,19 +233,7 @@
 					<?php echo $social_icons->render_social_icons( $sharingbox_soical_icon_options ); ?>
 				</div>
 			<?php endif; ?>
-			<?php if($smof_data['author_info']): ?>
-			<div class="about-author">
-				<div class="fusion-title title"><h2 class="title-heading-left"><?php echo __('About the Author:', 'Avada'); ?> <?php the_author_posts_link(); ?></h2><div class="title-sep-container"><div class="title-sep sep-double"></div></div></div>
-				<div class="about-author-container">
-					<div class="avatar">
-						<?php echo get_avatar(get_the_author_meta('email'), '72'); ?>
-					</div>
-					<div class="description">
-						<?php the_author_meta("description"); ?>
-					</div>
-				</div>
-			</div>
-			<?php endif; ?>
+			
 
 			<?php if( ($smof_data['related_posts'] && get_post_meta($post->ID, 'pyre_related_posts', true ) != 'no' ) ||
 					  ( ! $smof_data['related_posts'] && get_post_meta($post->ID, 'pyre_related_posts', true) == 'yes' ) ): ?>

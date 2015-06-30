@@ -42,28 +42,16 @@
 						<h3>We specialize in…</h3>
 						<div class="tagcloud">
 							<?php 
-								$args = array(
-									'type'                     => 'product',
-									'child_of'                 => 0,
-									'parent'                   => '',
-									'orderby'                  => 'name',
-									'order'                    => 'ASC',
-									'hide_empty'               => 1,
-									'hierarchical'             => 1,
-									'exclude'                  => 1,
-									'include'                  => '',
-									'number'                   => '',
-									'taxonomy'                 => 'product_category',
-									'pad_counts'               => false 
-								); 
-								$categories = get_categories( $args );
+								
+								$categories = get_terms( 'product_category' );
 								$array_categories = array();
 								foreach($categories as $category){
 									$array_categories[] = 	$category->term_taxonomy_id ;	
 									?>
-									<a href="<?php  echo get_category_link( $category->term_id );  ?>" class="tag-link-19" title="1 topic" style="font-size: 8pt;"><?php echo $category->name;?></a>
+									<a href="<?php  echo get_term_link( $category );//get_category_link( $category->term_id );  ?>" class="tag-link-19" title="1 topic" style="font-size: 8pt;"><?php echo $category->name;?></a>
 									<?php
 								}
+								
 							?>
 						</div>
 						<div style="clear:both;"></div>

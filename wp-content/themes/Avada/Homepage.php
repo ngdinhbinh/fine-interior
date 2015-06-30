@@ -18,7 +18,8 @@ get_header(); ?>
 		'taxonomy'                 => 'product_category',
 		'pad_counts'               => false 
 	); 
-	$categories = get_categories( $args );
+	
+	$categories = get_terms( 'product_category' );
 	$array_categories = array();
 	foreach($categories as $category){
 		$array_categories[] = 	$category->term_taxonomy_id ;	
@@ -36,7 +37,7 @@ get_header(); ?>
 					<div class="fusion-column-wrapper">
 						<div class="imageframe-align-center">
 							<span class="fusion-imageframe imageframe-none imageframe-1 fusion-animated fadeInUp" data-animationtype="fadeInUp" data-animationduration="1" style="visibility: visible; -webkit-animation-duration: 1s; animation-duration: 1s;">
-								<a href="<?php  echo get_category_link( $category->term_id );  ?>" class="container_image fusion-lightbox" data-rel="iLightbox[558c327bd250f]" data-title="feature3"> 
+								<a href="<?php  echo get_term_link( $category );  ?>" class="container_image fusion-lightbox" data-rel="iLightbox[558c327bd250f]" data-title="feature3"> 
 									<img src="<?php echo z_taxonomy_image_url($category->term_id) ?>" />
 								</a>
 							</span>

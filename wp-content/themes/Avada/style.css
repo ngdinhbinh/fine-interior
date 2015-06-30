@@ -2465,6 +2465,8 @@ body .post-content .image-extras .link-icon {
   color: #333333;
   text-indent: 10px;
   display: block;
+    box-shadow: none;
+  padding: 12px 5px;
 }
 #sidebar {
   width: 23.4042553%;

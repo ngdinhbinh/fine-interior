@@ -7,3 +7,4 @@ get_template_part('widgets/125_125');
 get_template_part('widgets/social_links');
 get_template_part('widgets/contact_info');
 get_template_part('widgets/recent-works-widget');
+get_template_part('widgets/product-categories-widget');
