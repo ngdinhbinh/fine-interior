@@ -15892,3 +15892,27 @@ ul.fusion-filters{overflow: hidden;
   ul.fusion-filters li{
 	float:left;margin-right: 30px;
   }
+  .fusion-layout-column {
+  position: relative;
+  float: left;
+  margin-right: 4%;
+  margin-bottom: 20px;
+}
+  .fusion-two-third {
+  width: 65.3333%;
+}
+.fusion-one-third {
+  width: 30.6666%;
+}
+.fusion-column-last {
+  margin-left: 0;
+  margin-right: 0;
+}
+.page-title-container {
+  background-image: url('http://theme-fusion.com/avada/wp-content/uploads/2014/12/ptb_bkgd.png');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-color: #f6f6f6;
+}
+.fusion-column-wrapper iframe{width:100% !important}
+.tp-simpleresponsive #video-slide.tp-caption{padding:0;}
