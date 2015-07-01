@@ -399,7 +399,7 @@ if( $smof_data['layout'] == 'Boxed' || get_post_meta($c_pageID, 'pyre_page_bg_la
 		<div class="fusion-clearfix"></div>
 		<div class="fusion-column col col-lg-5 col-md-5 col-sm-5 " style="margin: 50px 0;">
 			<div class="img_box_circle">
-				<img width="480" height="480" src="/fine-interior/wp-content/uploads/2015/06/cooperate.jpg" class="vc_single_image-img attachment-large-thumb" alt="image_10" style="display: block;">
+				<img width="480" height="480" src="<?php echo home_url('/wp-content/uploads/2015/06/cooperate.jpg'); ?>" class="vc_single_image-img attachment-large-thumb" alt="image_10" style="display: block;">
 			</div>	
 		</div>
 		<div class="fusion-column col col-lg-7 col-md-7 col-sm-7 " style="margin: 50px 0;  padding-left: 50px;">
